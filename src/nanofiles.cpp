@@ -1,12 +1,10 @@
-#ifdef QT_QML_DEBUG
 #include <QtQuick>
-#endif
 
 #include <sailfishapp.h>
-#include "filesystemmodel.h"
-#include "qt-folderlistmodel/qquickfolderlistmodel.h"
+#include "filesmanager.h"
+#include "fileprocess.h"
+#include "fileengine.h"
 #include <QApplication>
-#include <QtQml/qqml.h>
 
 int main(int argc, char *argv[])
 {
@@ -14,18 +12,13 @@ int main(int argc, char *argv[])
     QSharedPointer<QQuickView> view(SailfishApp::createView());
     QApplication qapp(argc, argv);
 
-    FileSystemModel* model = new FileSystemModel;
-    model->setRootPath("/home/nemo");
+    FilesManager* fmanager = new FilesManager;
+    FileEngine fileEngine;
+    view->rootContext()->setContextProperty("engine", &fileEngine);
+    view->rootContext()->setContextProperty("fprocess", fileEngine.fileProcess);
+    view->rootContext()->setContextProperty("clipboard", fileEngine.clipboard);
 
-    view->rootContext()->setContextProperty("fsmodel",model);
-    view->rootContext()->setContextProperty("fsindex",model->index(model->rootPath()));
-
-    QString uri = "com.verdanditeam.FolderListModel";
-    qmlRegisterType<QQuickFolderListModel>(uri, 1, 0, "FolderListModel");
-
-    qmlRegisterTypesAndRevisions<QQuickFolderListModel>(uri, 2);
-
-    qmlRegisterModule(uri, 2, 15);
+    view->rootContext()->setContextProperty("fmanager",fmanager);
 
     view->setSource(SailfishApp::pathTo("qml/nanofiles.qml"));
     view->show();

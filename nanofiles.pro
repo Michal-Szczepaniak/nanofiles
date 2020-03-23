@@ -1,31 +1,31 @@
-# NOTICE:
-#
-# Application name defined in TARGET has a corresponding QML filename.
-# If name defined in TARGET is changed, the following needs to be done
-# to match new name:
-#   - corresponding QML filename must be changed
-#   - desktop icon filename must be changed
-#   - desktop filename must be changed
-#   - icon definition filename in desktop file must be changed
-#   - translation filenames have to be changed
+include(vendor/vendor.pri)
 
-# The name of your application
 TARGET = nanofiles
 
-QT += core-private qml-private widgets
+QT += widgets
 
 CONFIG += sailfishapp
 
 SOURCES += src/nanofiles.cpp \
-    src/filesystemmodel.cpp \
-    qt-folderlistmodel/qquickfolderlistmodel.cpp \
-    qt-folderlistmodel/plugin.cpp \
-    qt-folderlistmodel/fileinfothread.cpp
+    src/fileprocess.cpp \
+    src/filesmanager.cpp \
+    src/fileengine.cpp \
+    src/filelist.cpp \
+    src/clipboard.cpp \
+    src/util.cpp \
+    src/worker.cpp
 
 DISTFILES += qml/nanofiles.qml \
+    qml/components/ErrorDialog.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/pages/FileInfo.qml \
+    qml/pages/Main.qml \
+    qml/pages/About.qml \
+    qml/pages/Places.qml \
+    qml/pages/ShareFilesPage.qml \
+    qml/components/NewFilesDialog.qml \
+    qml/components/FileRenameDialog.qml \
+    qml/components/MenuBar.qml \
     rpm/nanofiles.changes.in \
     rpm/nanofiles.changes.run.in \
     rpm/nanofiles.spec \
@@ -46,7 +46,10 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/nanofiles-de.ts
 
 HEADERS += \
-    src/filesystemmodel.h \
-    qt-folderlistmodel/qquickfolderlistmodel.h \
-    qt-folderlistmodel/fileproperty_p.h \
-    qt-folderlistmodel/fileinfothread_p.h
+    src/fileprocess.h \
+    src/filesmanager.h \
+    src/fileengine.h \
+    src/filelist.h \
+    src/clipboard.h \
+    src/util.h \
+    src/worker.h
