@@ -29,7 +29,7 @@ Page {
     SilicaFlickable {
         anchors.fill: parent
 
-        contentHeight: column.height + header.height
+        contentHeight: column.height + header.height + Theme.paddingLarge
 
         PageHeader {
             id: header
@@ -94,6 +94,7 @@ Page {
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
             Text {
@@ -106,6 +107,8 @@ Page {
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor
+                onLinkActivated: Qt.openUrlExternally(link)
+
             }
 
             Separator {
@@ -149,6 +152,7 @@ Page {
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
        }
