@@ -90,7 +90,6 @@ Page {
                 textFormat: Text.StyledText
                 font.pixelSize: Theme.fontSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width - Theme.paddingLarge*2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor
@@ -98,16 +97,15 @@ Page {
             }
 
             Text {
-                text: "Twitter: <a href=\"https://twitter.com/Mister1Magister\">twitter.com/Mister1Magister</a>"
                 color: "white"
                 textFormat: Text.StyledText
                 font.pixelSize: Theme.fontSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width - Theme.paddingLarge*2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor
                 onLinkActivated: Qt.openUrlExternally(link)
+                text: "Twitter: <a href=\"https://twitter.com/Mister1Magister\">twitter.com/Mister1Magister</a>"
 
             }
 
@@ -148,7 +146,6 @@ Page {
                 textFormat: Text.StyledText
                 font.pixelSize: Theme.fontSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width - Theme.paddingLarge*2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 linkColor: Theme.highlightColor

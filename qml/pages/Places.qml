@@ -3,7 +3,11 @@ import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
 
 Page {
+
     property var flm
+
+    allowedOrientations: Orientation.All
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: parent.height
@@ -20,6 +24,14 @@ Page {
             property string places: JSON.stringify([
                 {name: "Root", path: "/"},
                 {name: "Home", path: "/home/nemo"},
+                {name: "Documents", path: "/home/nemo/Documents"},
+                {name: "Downloads", path: "/home/nemo/Downloads"},
+                {name: "Music", path: "/home/nemo/Music"},
+                {name: "Pictures", path: "/home/nemo/Pictures"},
+                {name: "Videos", path: "/home/nemo/Videos"},
+                {name: "Android storage", path: "/home/nemo/android_storage"},
+                {name: "Root", path: "/"},
+                {name: "SD card", path: "/media/sdcard/"},
             ])
 
             onPlacesChanged: {
@@ -106,6 +118,8 @@ Page {
 
         property string name
         property int id
+
+        allowedOrientations: Orientation.All
 
         Column {
             width: parent.width

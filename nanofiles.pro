@@ -18,6 +18,7 @@ SOURCES += src/nanofiles.cpp \
 DISTFILES += qml/nanofiles.qml \
     qml/components/ErrorDialog.qml \
     qml/cover/CoverPage.qml \
+    qml/js/moment.min.js \
     qml/pages/FileInfo.qml \
     qml/pages/Main.qml \
     qml/pages/About.qml \
@@ -26,14 +27,14 @@ DISTFILES += qml/nanofiles.qml \
     qml/components/NewFilesDialog.qml \
     qml/components/FileRenameDialog.qml \
     qml/components/MenuBar.qml \
-    rpm/nanofiles.changes.in \
-    rpm/nanofiles.changes.run.in \
     rpm/nanofiles.spec \
-    rpm/nanofiles.yaml \
     translations/*.ts \
     nanofiles.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
+
+RESOURCES += \
+    qml/resources/resources.qrc
 
 # to disable building translations every time, comment out the
 # following CONFIG line

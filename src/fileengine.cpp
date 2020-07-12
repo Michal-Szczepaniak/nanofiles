@@ -1,9 +1,12 @@
 #include "fileengine.h"
+#include <unistd.h>
+#include <sys/types.h>
 
 FileEngine::FileEngine(QObject *parent) :
     QObject(parent)
 {
     m_currentFileIndex = -1;
+    m_rootMode = getuid() == 0;
 
     fileList = new FileList();
 //    fileInfo = new FileInfo();
@@ -164,8 +167,8 @@ void FileEngine::createEntries(const QString &jsonString)
         // Create directories
         if (type == "directory")
         {
-//            QDir dir(path);
-//            bool success = dir.mkdir(QString("%1/%2").arg(path, name));
+            QDir dir(path);
+            dir.mkdir(QString("%1/%2").arg(path, name));
         }
         else if (type == "file")
         {
@@ -252,6 +255,29 @@ QString FileEngine::getSdCardMountPath()
         return "/media/sdcard";
     else
         return "";
+}
+
+bool FileEngine::rootMode()
+{
+    return m_rootMode;
+}
+
+void FileEngine::setRootMode(bool rootMode)
+{
+    if (rootMode) {
+        if (setuid(0)) {
+            perror("setuid");
+            exit(1);
+        }
+    } else {
+        if (setuid(100000)) {
+            perror("setuid");
+            exit(1);
+        }
+    }
+
+    m_rootMode = rootMode;
+    emit rootModeChanged(rootMode);
 }
 
 /*

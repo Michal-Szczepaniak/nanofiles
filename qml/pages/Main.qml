@@ -6,6 +6,7 @@ import Qt.labs.folderlistmodel 2.1
 import SortFilterProxyModel 0.2
 import org.nemomobile.configuration 1.0
 import "../components"
+import "../js/moment.min.js" as Moment
 
 Page {
     id: page
@@ -80,9 +81,10 @@ Page {
         console.log(func)
         switch(func) {
         case "select":
-            selectMode = !selectMode
-            clipboard.clearSelectedFiles()
+            clipboard.changeFileOperation("", getCurrentDir())
             clipboard.clearClipboard()
+            clipboard.clearSelectedFiles()
+            selectMode = false
             break;
         case "copy":
             if (clipboard.getClipboardFileCount()) {
@@ -91,6 +93,7 @@ Page {
                                             clipboard.getClipboardDir(),
                                             clipboard.getSelectedFiles(),
                                             getCurrentDir())
+                clipboard.changeFileOperation("", getCurrentDir())
                 clipboard.clearClipboard()
             } else {
                 clipboard.changeFileOperation("copy", getCurrentDir())
@@ -99,18 +102,22 @@ Page {
             }
             break;
         case "delete":
-            if (clipboard.getSelectedFileCount()) {
-                engine.performFileOperation("delete",
-                                            clipboard.getClipboard(),
-                                            clipboard.getClipboardDir(),
-                                            clipboard.getSelectedFiles(),
-                                            getCurrentDir())
-                selectMode = false
-            } else {
-                clipboard.changeFileOperation("", getCurrentDir())
-                selectMode = false
-            }
-            clipboard.clearSelectedFiles()
+            Remorse.popupAction(page, Remorse.deletedText, function() {
+                if (clipboard.getSelectedFileCount()) {
+                    engine.performFileOperation("delete",
+                                                clipboard.getClipboard(),
+                                                clipboard.getClipboardDir(),
+                                                clipboard.getSelectedFiles(),
+                                                getCurrentDir())
+                    clipboard.changeFileOperation("", getCurrentDir())
+                    selectMode = false
+                } else {
+                    clipboard.changeFileOperation("", getCurrentDir())
+                    selectMode = false
+                }
+                clipboard.clearClipboard()
+                clipboard.clearSelectedFiles()
+            })
             break;
         case "cut":
             if (clipboard.getClipboardFileCount()) {
@@ -119,6 +126,7 @@ Page {
                                             clipboard.getClipboardDir(),
                                             clipboard.getSelectedFiles(),
                                             getCurrentDir())
+                clipboard.changeFileOperation("", getCurrentDir())
                 clipboard.clearClipboard()
             } else {
                 clipboard.changeFileOperation("cut", getCurrentDir())
@@ -142,7 +150,6 @@ Page {
             clipboard.clearSelectedFiles()
             break;
         case "info":
-            console.log(clipboard.getSelectedFiles()[0])
             var fileIndex = flm.indexOf("file:" + clipboard.getSelectedFiles()[0])
             pageStack.push(Qt.resolvedUrl("FileInfo.qml"), { flm: flm, index: fileIndex, icon: (flm.get(fileIndex, "fileIsDir") ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(clipboard.getSelectedFiles()[0], 0))})
             break;
@@ -167,7 +174,11 @@ Page {
             {name: "Root", path: "/"},
             {name: "Home", path: "/home/nemo"},
         ])
+        property bool listView: false
+        property bool rootMode: false
     }
+
+    Component.onCompleted: engine.rootMode = settings.rootMode
 
     allowedOrientations: Orientation.All
 
@@ -181,11 +192,31 @@ Page {
             }
 
             MenuItem {
+                text: engine.rootMode ? qsTr("Restart in user mode") : qsTr("Restart in root mode")
+                onClicked: {
+                    settings.rootMode = !settings.rootMode
+                    Qt.quit()
+                }
+            }
+
+            MenuItem {
+                text: settings.listView ? qsTr("Switch to grid view") : qsTr("Switch to list view")
+                onClicked: settings.listView = !settings.listView
+            }
+
+            MenuItem {
                 text: qsTr("Add to places")
                 onClicked: {
                     var tmpPlaces = JSON.parse(settings.places)
                     tmpPlaces.push({name: pageHeader.title, path: getCurrentDir()})
                     settings.places = JSON.stringify(tmpPlaces)
+                }
+            }
+
+            MenuItem {
+                text: flm.showHiddenFiles ? qsTr("Hide hidden files") : qsTr("Show hidden files")
+                onClicked: {
+                    flm.showHiddenFiles = !flm.showHiddenFiles
                 }
             }
 
@@ -213,21 +244,32 @@ Page {
             id: flm
             folder: "/home/nemo"
             showDotAndDotDot: true
+            showDirsFirst: true
+            showHidden: true
+
+            property bool showHiddenFiles: false
         }
 
         SortFilterProxyModel {
             id: flmProxyModel
             sourceModel: flm
 
-            filters: ValueFilter {
-                roleName: "fileName"
-                value: "."
-                inverted: true
-                enabled: true
-            }
+            filters: [
+                ValueFilter {
+                    roleName: "fileName"
+                    value: "."
+                    inverted: true
+                    enabled: true
+                },
+                RegExpFilter {
+                    roleName: "fileName"
+                    pattern: "^\\..{2,}"
+                    inverted: true
+                    enabled: !flm.showHiddenFiles
+                }
+            ]
 
             sorters: [
-                RoleSorter { roleName: "fileIsDir"; ascendingOrder: false },
                 ExpressionSorter {
                     expression: {
                         return modelLeft.fileName === "..";
@@ -237,117 +279,235 @@ Page {
         }
 
         SilicaListView {
-            id: filesListView
-            anchors.fill: parent
-            model: flmProxyModel
-            visible: false
-            delegate: BackgroundItem {
-                Label {
-                    text: fileName
-                }
-
-                onClicked: {
-                    flm.folder = filePath
-                }
-            }
-        }
-
-        SilicaGridView {
-            id: filesGridView
+            id: lv
             anchors.top: pageHeader.bottom
             anchors.bottom: menuBar.top
             anchors.left: parent.left
             anchors.right: parent.right
-            model: flmProxyModel
-            visible: true
-            cellWidth: landscape ? Screen.height / Math.round(Screen.height / (Screen.width/3)) :  Screen.width/3
-            cellHeight: cellWidth + Theme.paddingSmall
+            orientation: ListView.Horizontal
+            layoutDirection: ListView.RightToLeft
+            interactive: true
             clip: true
+            contentHeight: height
+            contentWidth: width*2
+            snapMode: ListView.SnapOneItem
 
-            delegate: BackgroundItem {
-                width: filesGridView.cellWidth
-                height: width + Theme.paddingSmall
-                clip: true
-                down: itemMouseArea.pressed
-
-                property bool selected: contains(clipboard.getSelectedFiles(), filePath)
-
-                function contains(array, string) {
-                    var result = false
-                    array.forEach(function(element) { if(element === string) result = true })
-                    return result
+            onMovingChanged: {
+                if (!moving) {
+                    currentIndex = (contentX + page.width*2) === 0 ? 0 : 1 //idk why it's shifted by 2*page.width
                 }
+            }
 
-                Rectangle {
+            onCurrentIndexChanged: {
+                if (currentIndex == 1) {
+                    flm.folder = flm.get(1, "filePath")
+                    lv.currentIndex = 0
+                }
+            }
+
+            model: ListModel {
+                id: listModel
+
+                ListElement {}
+                ListElement {}
+            }
+
+
+            delegate: Item {
+                width: lv.width
+                height: lv.height
+
+                SilicaListView {
+                    id: filesListView
                     anchors.fill: parent
-                    color: Theme.rgba(Theme.secondaryHighlightColor, Theme.highlightBackgroundOpacity)
-                    visible: selected
-                }
-
-                Image {
-                    id: icon
-                    width: parent.width
-                    height: parent.height/2
-                    source: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
-                    fillMode: Image.PreserveAspectFit
-                    asynchronous: true
-                }
-
-                Label {
-                    text: fileName
-                    anchors.top: icon.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: Theme.paddingLarge
-                    anchors.leftMargin: Theme.paddingLarge
-                    anchors.rightMargin: Theme.paddingLarge
-                    horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                    font.pixelSize: Theme.fontSizeExtraSmall
-                    truncationMode: TruncationMode.Elide
+                    model: flmProxyModel
                     clip: true
+                    visible: settings.listView
+                    delegate: BackgroundItem {
+                        down: listItemMouseArea.pressed
+                        property bool selected: contains(clipboard.getSelectedFiles(), filePath)
+
+                        function contains(array, string) {
+                            var result = false
+                            array.forEach(function(element) { if(element === string) result = true })
+                            return result
+                        }
+
+                        Rectangle {
+                            anchors.fill: parent
+                            color: Theme.rgba(Theme.secondaryHighlightColor, Theme.highlightBackgroundOpacity)
+                            visible: selected
+                        }
+
+                        Row {
+                            anchors.left: parent.left
+                            anchors.leftMargin: Theme.paddingLarge
+                            anchors.top: parent.top
+                            anchors.bottom: parent.bottom
+                            anchors.right: parent.right
+                            anchors.rightMargin: Theme.paddingLarge
+                            spacing: Theme.paddingLarge
+
+                            Image {
+                                id: listIcon
+                                width: parent.height
+                                height: parent.height
+                                source: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                                fillMode: Image.PreserveAspectFit
+                                asynchronous: true
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+
+                            Column {
+                                width: parent.width - Theme.paddingLarge - listIcon.width
+                                anchors.verticalCenter: parent.verticalCenter
+                                Label {
+                                    width: parent.width - Theme.paddingLarge - listIcon.width
+                                    clip: true
+                                    truncationMode: TruncationMode.Elide
+                                    text: fileName
+                                }
+                                Label {
+                                    width: parent.width - Theme.paddingLarge - listIcon.width
+                                    clip: true
+                                    truncationMode: TruncationMode.Elide
+                                    font.pixelSize: Theme.fontSizeExtraSmall
+                                    color: Theme.secondaryColor
+                                    text: qsTr("Size: %1 Modified: %2").arg(fileSize.toString()).arg(Moment.moment(fileModified).format("Y/MM/DD HH:MM"))
+                                }
+                            }
+                        }
+
+                        MouseArea {
+                            id: listItemMouseArea
+
+                            anchors.fill: parent
+                            propagateComposedEvents: true
+
+                            function selectFile(index, filePath) {
+                                if (!selected) {
+                                    clipboard.addFileToSelectedFiles(filePath)
+                                    if(!selectMode) selectMode = true
+        //                            selectedFiles[index] = filePath
+                                } else {
+                                    clipboard.removeFileFromSelectedFiles(filePath)
+        //                            delete selectedFiles[index];
+                                }
+
+                                selected = !selected
+                                if (clipboard.selectedFileCount === 0) selectMode = false
+                            }
+
+                            onPressAndHold: {
+                                selectFile(index, filePath)
+                            }
+
+                            onClicked: {
+                                if (selectMode) {
+                                    selectFile(index, filePath)
+                                } else if (fileIsDir) {
+                                    flm.folder = filePath
+                                } else {
+                                    fprocess.performFileAction(filePath, "openSystem", false)
+                                }
+                            }
+                        }
+                    }
                 }
 
-                MouseArea {
-                    id: itemMouseArea
-
+                SilicaGridView {
+                    id: filesGridView
                     anchors.fill: parent
-                    propagateComposedEvents: true
+                    model: flmProxyModel
+                    cellWidth: landscape ? Screen.height / Math.round(Screen.height / (Screen.width/3)) :  Screen.width/3
+                    cellHeight: cellWidth + Theme.paddingSmall
+                    clip: true
+                    visible: !settings.listView
 
-                    function selectFile(index, filePath) {
-                        if (!selected) {
-                            clipboard.addFileToSelectedFiles(filePath)
-                            if(!selectMode) selectMode = true
-//                            selectedFiles[index] = filePath
-                        } else {
-                            clipboard.removeFileFromSelectedFiles(filePath)
-//                            delete selectedFiles[index];
+                    delegate: BackgroundItem {
+                        width: filesGridView.cellWidth
+                        height: width + Theme.paddingSmall
+                        clip: true
+                        down: gridItemMouseArea.pressed
+
+                        property bool selected: contains(clipboard.getSelectedFiles(), filePath)
+
+                        function contains(array, string) {
+                            var result = false
+                            array.forEach(function(element) { if(element === string) result = true })
+                            return result
                         }
 
-                        selected = !selected
-                        if (clipboard.selectedFileCount === 0) selectMode = false
-                    }
-
-                    onPressAndHold: {
-                        selectFile(index, filePath)
-                    }
-
-                    onClicked: {
-                        if (selectMode) {
-                            selectFile(index, filePath)
-                        } else if (fileIsDir) {
-                            flm.folder = filePath
-                        } else {
-                            fprocess.performFileAction(filePath, "openSystem", false)
+                        Rectangle {
+                            anchors.fill: parent
+                            color: Theme.rgba(Theme.secondaryHighlightColor, Theme.highlightBackgroundOpacity)
+                            visible: selected
                         }
-                    }
-                }
 
-                Connections {
-                    target: page
-                    onSelectModeChanged: {
-                        if (!selectMode) selected = false
+                        Image {
+                            id: gridicon
+                            width: parent.width
+                            height: parent.height/2
+                            source: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                            fillMode: Image.PreserveAspectFit
+                            asynchronous: true
+                        }
+
+                        Label {
+                            text: fileName
+                            anchors.top: gridicon.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: Theme.paddingLarge
+                            anchors.leftMargin: Theme.paddingLarge
+                            anchors.rightMargin: Theme.paddingLarge
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                            font.pixelSize: Theme.fontSizeExtraSmall
+                            truncationMode: TruncationMode.Elide
+                            clip: true
+                        }
+
+                        MouseArea {
+                            id: gridItemMouseArea
+
+                            anchors.fill: parent
+                            propagateComposedEvents: true
+
+                            function selectFile(index, filePath) {
+                                if (!selected) {
+                                    clipboard.addFileToSelectedFiles(filePath)
+                                    if(!selectMode) selectMode = true
+                                } else {
+                                    clipboard.removeFileFromSelectedFiles(filePath)
+                                }
+
+                                selected = !selected
+                                if (clipboard.selectedFileCount === 0) selectMode = false
+                            }
+
+                            onPressAndHold: {
+                                selectFile(index, filePath)
+                            }
+
+                            onClicked: {
+                                if (selectMode) {
+                                    selectFile(index, filePath)
+                                } else if (fileIsDir) {
+                                    flm.folder = filePath
+                                } else {
+                                    fprocess.performFileAction(filePath, "openSystem", false)
+                                }
+                            }
+                        }
+
+                        Connections {
+                            target: page
+                            onSelectModeChanged: {
+                                if (!selectMode) selected = false
+                            }
+                        }
                     }
                 }
             }
@@ -358,13 +518,29 @@ Page {
             view: page
             height: Theme.itemSizeMedium
             anchors.bottomMargin: hidden ? -height : 0
-            iconArray: [ selectMode ? "image://theme/icon-m-close" : "image://theme/icon-m-certificates", "image://theme/icon-m-clipboard", "image://theme/icon-m-delete", "image://theme/icon-m-redirect", "image://theme/icon-m-file-archive-folder", "image://theme/icon-m-edit", "image://theme/icon-m-about"]
+            iconArray: [ selectMode ? "image://theme/icon-m-close" : "image://theme/icon-m-certificates", "image://theme/icon-m-clipboard", "image://theme/icon-m-delete", "qrc:///images/icon-m-scissors.svg", "image://theme/icon-m-file-archive-folder", "image://theme/icon-m-edit", "image://theme/icon-m-about"]
             functionsArray: [ "select", "copy", "delete", "cut", "tar", "rename", "info" ]
 
             property bool hidden: !selectMode && !clipboard.clipboardFileCount
 
             Connections {
                 target: clipboard
+
+                onFileOperationChanged: {
+                    var tempIconArray = menuBar.iconArray
+                    if (clipboard.getFileOperation() === "cut") {
+                        if (tempIconArray[3] === "image://theme/icon-m-redirect") {
+                            tempIconArray.splice(3,1)
+                        }
+                        menuBar.iconArray = tempIconArray
+                    } else {
+                        if (tempIconArray[3] !== "image://theme/icon-m-redirect") {
+                            tempIconArray.splice(3, 0, "image://theme/icon-m-redirect")
+                        }
+                        menuBar.iconArray = tempIconArray
+                    }
+                }
+
                 onSelectedFileCountChanged: {
                     var tempIconArray = menuBar.iconArray
                     if (clipboard.getSelectedFileCount() > 1) {

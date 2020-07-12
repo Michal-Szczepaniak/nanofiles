@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
+import "../js/moment.min.js" as Moment
 
 Page {
     id: page
@@ -9,13 +10,15 @@ Page {
     property var index
     property var icon
 
+    allowedOrientations: Orientation.All
+
     function get(name) {
         return flm.get(index, name)
     }
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: parent.height
+        contentHeight: fileIcon.height + propertiesColumn.height + Theme.paddingLarge * 2
 
         PageHeader {
             id: pageHeader
@@ -34,19 +37,19 @@ Page {
             source: icon
             anchors.top: pageHeader.bottom
             anchors.topMargin: Theme.paddingLarge
-            width: Theme.itemSizeHuge*2
-            height: Theme.itemSizeHuge*2
+            width: Theme.itemSizeHuge
+            height: Theme.itemSizeHuge
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Column {
+            id: propertiesColumn
             anchors.top: fileIcon.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: Theme.paddingLarge
             anchors.rightMargin: Theme.paddingLarge
             anchors.topMargin: Theme.paddingLarge * 2
-            height: parent.height - pageHeader.height - fileIcon.height
 
             Label {
                 width: parent.width
@@ -63,7 +66,7 @@ Page {
 
                 Label {
                     height: parent.height
-                    width: parent.width/3 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignRight
                     verticalAlignment: Text.AlignBottom
                     font.pixelSize: Theme.fontSizeSmall
@@ -73,7 +76,7 @@ Page {
 
                 Label {
                     height: parent.height
-                    width: (parent.width/3)*2 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignBottom
                     font.pixelSize: Theme.fontSizeSmall
@@ -86,7 +89,7 @@ Page {
                 spacing: Theme.paddingLarge
 
                 Label {
-                    width: parent.width/3 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignRight
                     font.pixelSize: Theme.fontSizeSmall
                     text: qsTr("Modified:")
@@ -94,10 +97,10 @@ Page {
                 }
 
                 Label {
-                    width: (parent.width/3)*2 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignLeft
                     font.pixelSize: Theme.fontSizeSmall
-                    text: (new Date(Date.parse(get("fileModified")))).toLocaleString()
+                    text: Moment.moment(get("fileModified")).format("Y/MM/DD HH:MM:SS")
                 }
             }
 
@@ -106,7 +109,7 @@ Page {
                 spacing: Theme.paddingLarge
 
                 Label {
-                    width: parent.width/3 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignRight
                     font.pixelSize: Theme.fontSizeSmall
                     text: qsTr("Accessed:")
@@ -114,10 +117,10 @@ Page {
                 }
 
                 Label {
-                    width: (parent.width/3)*2 - Theme.paddingLarge
+                    width: parent.width/2 - Theme.paddingLarge
                     horizontalAlignment: Text.AlignLeft
                     font.pixelSize: Theme.fontSizeSmall
-                    text: (new Date(Date.parse(get("fileAccessed")))).toLocaleString()
+                    text: Moment.moment(get("fileAccessed")).format("Y/MM/DD HH:MM:ss")
                 }
             }
         }

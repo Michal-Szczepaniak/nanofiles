@@ -35,7 +35,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
+        <source>Nanofiles</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -139,6 +139,34 @@
     </message>
     <message>
         <source>Add to places</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hidden files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to grid view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to list view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart in user mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart in root mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size: %1 Modified: %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

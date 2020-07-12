@@ -5,6 +5,7 @@ Dialog {
     id: errorDialog
     property string error
     canAccept: false
+    allowedOrientations: Orientation.All
 
     Column {
         width: parent.width

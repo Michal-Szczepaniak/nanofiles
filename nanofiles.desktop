@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Application
-X-Nemo-Application-Type=silica-qt5
 Icon=nanofiles
 Exec=nanofiles
 Name=nanofiles

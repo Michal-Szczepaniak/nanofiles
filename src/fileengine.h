@@ -19,6 +19,7 @@ class FileEngine : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int currentFileIndex READ getCurrentFileIndex WRITE setCurrentFileIndex NOTIFY currentFileIndexChanged)
+    Q_PROPERTY(bool rootMode READ rootMode WRITE setRootMode NOTIFY rootModeChanged)
 public:
     explicit FileEngine(QObject *parent = 0);
 
@@ -43,6 +44,9 @@ public:
 
     Q_INVOKABLE QString getSdCardMountPath();
 
+    bool rootMode();
+    void setRootMode(bool rootMode);
+
     void setCurrentFileIndex(const int &currentFileIndex);
     int getCurrentFileIndex() const;
 
@@ -55,6 +59,7 @@ public:
 
 private:
     int m_currentFileIndex;
+    bool m_rootMode;
 
 signals:
     void currentFileIndexChanged(const int &currentFileIndex);
@@ -65,6 +70,7 @@ signals:
     void currentEntryChanged(const QString &currentEntry);
 
     void fileOperationFinished();
+    void rootModeChanged(bool rootMode);
 
 public slots:
 

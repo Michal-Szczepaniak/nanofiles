@@ -2,21 +2,22 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
-    Label {
-        id: label
+
+    Column {
         anchors.centerIn: parent
-        text: qsTr("My Cover")
-    }
+        spacing: Theme.paddingLarge * 2
 
-    CoverActionList {
-        id: coverAction
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-next"
+        Image {
+            source: "/usr/share/icons/hicolor/172x172/apps/nanofiles.png"
+            width: 2/3 * parent.width
+            fillMode: Image.PreserveAspectFit
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
+        Label {
+            id: label
+            text: qsTr("Nanofiles")
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 }

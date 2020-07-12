@@ -51,6 +51,7 @@ Dialog {
             id: name
             placeholderText: qsTr("Name…")
             width: parent.width
+            focus: true
 
             onTextChanged: {
                 var valid = validateEntryName(text)
