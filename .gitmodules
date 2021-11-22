@@ -1,0 +1,3 @@
+[submodule "vendor/fr/grecko/sortfilterproxymodel"]
+	path = vendor/fr/grecko/sortfilterproxymodel
+	url = https://github.com/oKcerG/SortFilterProxyModel.git

@@ -211,6 +211,10 @@
         <source>Change name</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset entries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareFilesPage</name>

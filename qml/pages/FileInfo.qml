@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
+import Sailfish.Share 1.0
 import "../js/moment.min.js" as Moment
 
 Page {
@@ -16,6 +17,11 @@ Page {
         return flm.get(index, name)
     }
 
+    ShareAction {
+        id: shareAction
+        resources: [ clipboard.getSelectedFiles()[0] ]
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: fileIcon.height + propertiesColumn.height + Theme.paddingLarge * 2
@@ -28,7 +34,7 @@ Page {
         PullDownMenu {
             MenuItem {
                 text: qsTr("Share")
-                onClicked: pageStack.push(Qt.resolvedUrl("ShareFilesPage.qml"))
+                onClicked: shareAction.trigger()
             }
         }
 

@@ -8,6 +8,18 @@ Page {
 
     allowedOrientations: Orientation.All
 
+    property string defaultPlaces: JSON.stringify([
+                                                      {name: "Home", path: StandardPaths.home},
+                                                      {name: "Documents", path: StandardPaths.documents},
+                                                      {name: "Downloads", path: StandardPaths.download},
+                                                      {name: "Music", path: StandardPaths.music},
+                                                      {name: "Pictures", path: StandardPaths.pictures},
+                                                      {name: "Videos", path: StandardPaths.videos},
+                                                      {name: "Android storage", path: StandardPaths.home + "/android_storage"},
+                                                      {name: "Root", path: "/"},
+                                                      {name: "SD card", path: "/media/sdcard/"},
+                                                  ])
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: parent.height
@@ -17,22 +29,19 @@ Page {
             title: "Places"
         }
 
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Reset entries")
+                onClicked: settings.places = defaultPlaces
+            }
+
+        }
+
         ConfigurationGroup {
             id: settings
             path: "/apps/nanofiles"
 
-            property string places: JSON.stringify([
-                {name: "Root", path: "/"},
-                {name: "Home", path: "/home/nemo"},
-                {name: "Documents", path: "/home/nemo/Documents"},
-                {name: "Downloads", path: "/home/nemo/Downloads"},
-                {name: "Music", path: "/home/nemo/Music"},
-                {name: "Pictures", path: "/home/nemo/Pictures"},
-                {name: "Videos", path: "/home/nemo/Videos"},
-                {name: "Android storage", path: "/home/nemo/android_storage"},
-                {name: "Root", path: "/"},
-                {name: "SD card", path: "/media/sdcard/"},
-            ])
+            property string places: defaultPlaces
 
             onPlacesChanged: {
                 listModel.clear()
