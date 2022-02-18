@@ -2,7 +2,7 @@ include(vendor/vendor.pri)
 
 TARGET = nanofiles
 
-QT += widgets
+QT += widgets qml quick
 
 CONFIG += sailfishapp
 
