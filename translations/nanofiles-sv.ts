@@ -213,7 +213,7 @@
     </message>
     <message>
         <source>Reset entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ poster</translation>
     </message>
 </context>
 <context>
