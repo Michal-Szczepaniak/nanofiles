@@ -28,7 +28,7 @@ Page {
 
         PageHeader {
             id: pageHeader
-            title: "File information"
+            title: qsTr("File information")
         }
 
         PullDownMenu {

@@ -31,6 +31,22 @@
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>1Zgp for Hungarian translation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dashinfantry for Chinese translation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>eson57 for Swedish translation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>carmenfdezb for Spanish translation.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -66,6 +82,10 @@
     </message>
     <message>
         <source>Accessed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -38,7 +38,9 @@ RESOURCES += \
 
 CONFIG += sailfishapp_i18n
 
-TRANSLATIONS += translations/nanofiles-es.ts \
+TRANSLATIONS += translations/nanofiles.ts \
+                translations/nanofiles-es.ts \
+                translations/nanofiles-hu.ts \
                 translations/nanofiles-sv.ts \
                 translations/nanofiles-zh_CN.ts
 
