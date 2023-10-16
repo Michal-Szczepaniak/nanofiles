@@ -78,7 +78,6 @@ Page {
     }
 
     function handleButton(func) {
-        console.log(func)
         switch(func) {
         case "select":
             clipboard.changeFileOperation("", getCurrentDir())
@@ -182,10 +181,7 @@ Page {
                                                    {name: "SD card", path: "/media/sdcard/"},
                                                ])
         property bool listView: false
-        property bool rootMode: false
     }
-
-    Component.onCompleted: engine.rootMode = settings.rootMode
 
     allowedOrientations: Orientation.All
 
@@ -201,7 +197,7 @@ Page {
             MenuItem {
                 text: engine.rootMode ? qsTr("Restart in user mode") : qsTr("Restart in root mode")
                 onClicked: {
-                    settings.rootMode = !settings.rootMode
+                    engine.rootMode = !engine.rootMode
                     Qt.quit()
                 }
             }

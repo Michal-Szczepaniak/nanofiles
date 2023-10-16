@@ -5,68 +5,14 @@
 FileEngine::FileEngine(QObject *parent) :
     QObject(parent)
 {
-    m_currentFileIndex = -1;
-    m_rootMode = getuid() == 0;
+    _currentFileIndex = -1;
+    setRootMode(QFile::exists("/tmp/nanofiles_root"));
+
 
     fileList = new FileList();
-//    fileInfo = new FileInfo();
     fileProcess = new FileProcess();
     clipboard = new Clipboard();
-//    settings = new Settings();
-//    coverModel = new CoverModel();
-
-//    fileList->setShowHiddenFiles(settings->getShowHiddenFiles());
-//    fileList->setSortBy(settings->getSortBy());
-//    fileList->setSortOrder(settings->getSortOrder());
-//    fileList->setDirOrder(settings->getDirOrder());
-
-//    connect(settings, SIGNAL(showHiddenFilesChanged(bool)), fileList, SLOT(setShowHiddenFiles(bool)));
-//    connect(settings, SIGNAL(sortByChanged(QString)), fileList, SLOT(setSortBy(QString)));
-//    connect(settings, SIGNAL(sortOrderChanged(QString)), fileList, SLOT(setSortOrder(QString)));
-//    connect(settings, SIGNAL(dirOrderChanged(QString)), fileList, SLOT(setDirOrder(QString)));
-//    connect(settings, SIGNAL(directoryViewSettingsChanged()), fileList, SLOT(resetFileInfoEntryList()));
-
-//    connect(fileList, SIGNAL(currentDirectoryChanged(QString)), coverModel, SLOT(setCoverLabel(QString)));
 }
-
-/*void FileEngine::updateCurrentFileIndex(const QString &fullPath,
-                                        const QString &path,
-                                        const QString &fileTypes)
-{
-    QList<FileInfoEntry*> fileInfoList = fileList->getFileInfoEntryList(path, fileTypes);
-
-    int currentFileIndex = getCurrentFileIndex();
-
-    // If current file index is above 2, try
-    if (currentFileIndex > 2)
-    {
-        for (int i=currentFileIndex-1; i < currentFileIndex+2; i++)
-        {
-            // Don't go out of bounds
-            if (i <= fileInfoList.length() - 1 && i >= 0)
-            {
-                FileInfoEntry *fileInfoEntry = fileInfoList.at(i);
-
-                if (fileInfoEntry->getFullPath() == fullPath)
-                {
-                    setCurrentFileIndex(i);
-                    return;
-                }
-            }
-        }
-    }
-
-    for (int i=0; i < fileInfoList.length(); i++)
-    {
-        FileInfoEntry *fileInfoEntry = fileInfoList.at(i);
-
-        if (fileInfoEntry->getFullPath() == fullPath)
-        {
-            setCurrentFileIndex(i);
-            return;
-        }
-    }
-}*/
 
 void FileEngine::performFileOperation(const QString &fileOperation,
                                       const QStringList &clipboardList,
@@ -257,26 +203,31 @@ QString FileEngine::getSdCardMountPath()
         return "";
 }
 
-bool FileEngine::rootMode()
+bool FileEngine::getRootMode()
 {
-    return m_rootMode;
+    return _rootMode;
 }
 
 void FileEngine::setRootMode(bool rootMode)
 {
     if (rootMode) {
+        QFile file("/tmp/nanofiles_root");
+        file.open(QIODevice::WriteOnly);
+        file.close();
+
         if (setuid(0)) {
             perror("setuid");
             exit(1);
         }
     } else {
+        QFile::remove("/tmp/nanofiles_root");
         if (setuid(100000)) {
             perror("setuid");
             exit(1);
         }
     }
 
-    m_rootMode = rootMode;
+    _rootMode = rootMode;
     emit rootModeChanged(rootMode);
 }
 
@@ -285,14 +236,14 @@ void FileEngine::setRootMode(bool rootMode)
  */
 void FileEngine::setCurrentFileIndex(const int &currentFileIndex)
 {
-    if (m_currentFileIndex != currentFileIndex)
+    if (_currentFileIndex != currentFileIndex)
     {
-        m_currentFileIndex = currentFileIndex;
+        _currentFileIndex = currentFileIndex;
         emit currentFileIndexChanged(currentFileIndex);
     }
 }
 
 int FileEngine::getCurrentFileIndex() const
 {
-    return m_currentFileIndex;
+    return _currentFileIndex;
 }

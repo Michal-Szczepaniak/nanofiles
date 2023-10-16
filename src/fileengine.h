@@ -8,24 +8,18 @@
 #include <QClipboard>
 #include <QDir>
 #include "filelist.h"
-//#include "fileinfo.h"
-//#include "settings.h"
 #include "fileprocess.h"
 #include "worker.h"
 #include "clipboard.h"
-//#include "covermodel.h"
 
 class FileEngine : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int currentFileIndex READ getCurrentFileIndex WRITE setCurrentFileIndex NOTIFY currentFileIndexChanged)
-    Q_PROPERTY(bool rootMode READ rootMode WRITE setRootMode NOTIFY rootModeChanged)
+    Q_PROPERTY(bool rootMode READ getRootMode WRITE setRootMode NOTIFY rootModeChanged)
 public:
     explicit FileEngine(QObject *parent = 0);
 
-//    Q_INVOKABLE void updateCurrentFileIndex(const QString &fullPath,
-//                                   const QString &path,
-//                                   const QString &fileTypes = QString(""));
     Q_INVOKABLE void resetCurrentFileIndex();
 
     Q_INVOKABLE void performFileOperation(const QString &fileOperation,
@@ -44,22 +38,19 @@ public:
 
     Q_INVOKABLE QString getSdCardMountPath();
 
-    bool rootMode();
+    bool getRootMode();
     void setRootMode(bool rootMode);
 
     void setCurrentFileIndex(const int &currentFileIndex);
     int getCurrentFileIndex() const;
 
     FileList *fileList;
-//    FileInfo *fileInfo;
     FileProcess *fileProcess;
     Clipboard *clipboard;
-//    Settings *settings;
-//    CoverModel *coverModel;
 
 private:
-    int m_currentFileIndex;
-    bool m_rootMode;
+    int _currentFileIndex;
+    bool _rootMode;
 
 signals:
     void currentFileIndexChanged(const int &currentFileIndex);
