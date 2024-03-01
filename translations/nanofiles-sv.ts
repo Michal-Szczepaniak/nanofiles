@@ -20,31 +20,19 @@
         <translation>Länkar</translation>
     </message>
     <message>
-        <source>Thanks to</source>
-        <translation>Tack till</translation>
-    </message>
-    <message>
-        <source>Rudi Timmermans for fileman.</source>
-        <translation>Rudi Timmermans för Fileman.</translation>
-    </message>
-    <message>
         <source>Donate</source>
         <translation>Donera</translation>
     </message>
     <message>
-        <source>1Zgp for Hungarian translation.</source>
+        <source>Contributors:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>dashinfantry for Chinese translation.</source>
+        <source>Rudi Timmermans (rudi1970)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>eson57 for Swedish translation.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>carmenfdezb for Spanish translation.</source>
+        <source>Nanofiles Translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -150,10 +138,6 @@
 <context>
     <name>Main</name>
     <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
         <source>New…</source>
         <translation>Nytt...</translation>
     </message>
@@ -178,16 +162,12 @@
         <translation>Växla till listvy</translation>
     </message>
     <message>
-        <source>Restart in user mode</source>
-        <translation>Starta om i användarläge</translation>
-    </message>
-    <message>
-        <source>Restart in root mode</source>
-        <translation>Starta om i root-läge</translation>
-    </message>
-    <message>
         <source>Size: %1 Modified: %2</source>
         <translation>Storlek: %1 Ändrad: %2</translation>
+    </message>
+    <message>
+        <source>Reset entries</source>
+        <translation type="unfinished">Återställ poster</translation>
     </message>
 </context>
 <context>
@@ -232,8 +212,16 @@
         <translation>Ändra namn</translation>
     </message>
     <message>
-        <source>Reset entries</source>
-        <translation>Återställ poster</translation>
+        <source>Restart in user mode</source>
+        <translation type="unfinished">Starta om i användarläge</translation>
+    </message>
+    <message>
+        <source>Restart in root mode</source>
+        <translation type="unfinished">Starta om i root-läge</translation>
+    </message>
+    <message>
+        <source>About Nanofiles</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -245,6 +233,17 @@
     <message>
         <source>Share</source>
         <translation>Dela</translation>
+    </message>
+</context>
+<context>
+    <name>TranslationsPage</name>
+    <message>
+        <source>POEditor translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nanofiles translators</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

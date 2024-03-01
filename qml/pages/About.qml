@@ -30,6 +30,13 @@ Page {
 
         contentHeight: column.height + header.height + Theme.paddingLarge
 
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Nanofiles Translations")
+                onClicked: pageStack.push(Qt.resolvedUrl("TranslationsPage.qml"))
+            }
+        }
+
         PageHeader {
             id: header
             title: qsTr("About")
@@ -50,7 +57,7 @@ Page {
             }
 
             Label {
-                text: "nanofiles 1.3.2"
+                text: "Nanofiles 1.4"
                 font.pixelSize: Theme.fontSizeExtraLarge
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
@@ -58,6 +65,24 @@ Page {
 
             Label {
                 text: qsTr("Made by Michał Szczepaniak. Based on fileman.")
+                font.pixelSize: Theme.fontSizeSmall
+                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.WordWrap
+                width: parent.width - Theme.paddingLarge*2
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Label {
+                 text: qsTr("Contributors:")
+                 font.pixelSize: Theme.fontSizeLarge
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 wrapMode: Text.WordWrap
+                 width: parent.width - Theme.paddingLarge*2
+                 horizontalAlignment: Text.AlignHCenter
+            }
+
+            Label {
+                text: qsTr("Rudi Timmermans (rudi1970)")
                 font.pixelSize: Theme.fontSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
@@ -106,48 +131,6 @@ Page {
                 onLinkActivated: Qt.openUrlExternally(link)
                 text: "Twitter: <a href=\"https://twitter.com/Mister1Magister\">twitter.com/Mister1Magister</a>"
 
-            }
-
-            Separator {
-                width: parent.width
-                color: Theme.primaryColor
-                horizontalAlignment: Qt.AlignHCenter
-            }
-
-            Label {
-                text: qsTr("Thanks to")
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Label {
-                text: qsTr("Rudi Timmermans for fileman.")
-                font.pixelSize: Theme.fontSizeSmall
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Label {
-                text: qsTr("1Zgp for Hungarian translation.")
-                font.pixelSize: Theme.fontSizeSmall
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Label {
-                text: qsTr("dashinfantry for Chinese translation.")
-                font.pixelSize: Theme.fontSizeSmall
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Label {
-                text: qsTr("eson57 for Swedish translation.")
-                font.pixelSize: Theme.fontSizeSmall
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Label {
-                text: qsTr("carmenfdezb for Spanish translation.")
-                font.pixelSize: Theme.fontSizeSmall
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Separator {

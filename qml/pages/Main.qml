@@ -178,10 +178,12 @@ Page {
                                                    {name: "Videos", path: StandardPaths.videos},
                                                    {name: "Android storage", path: StandardPaths.home + "/android_storage"},
                                                    {name: "Root", path: "/"},
-                                                   {name: "SD card", path: "/media/sdcard/"},
+                                                   {name: "SD card", "location": engine.getSdCardMountPath()},
                                                ])
         property bool listView: false
     }
+
+
 
     allowedOrientations: Orientation.All
 
@@ -190,16 +192,8 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("About")
-                onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
-            }
-
-            MenuItem {
-                text: engine.rootMode ? qsTr("Restart in user mode") : qsTr("Restart in root mode")
-                onClicked: {
-                    engine.rootMode = !engine.rootMode
-                    Qt.quit()
-                }
+                text: qsTr("Reset entries")
+                onClicked: settings.places = defaultPlaces
             }
 
             MenuItem {
