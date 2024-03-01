@@ -17,7 +17,7 @@ Page {
                                                       {name: "Videos", path: StandardPaths.videos},
                                                       {name: "Android storage", path: StandardPaths.home + "/android_storage"},
                                                       {name: "Root", path: "/"},
-                                                      {name: "SD card", path: "/media/sdcard/"},
+                                                      {name: "SD card", path: engine.getSdCardMountPath()},
                                                   ])
 
     SilicaFlickable {
@@ -31,10 +31,19 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("About Nanofiles")
+                onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
+            }
+            MenuItem {
                 text: qsTr("Reset entries")
                 onClicked: settings.places = defaultPlaces
             }
-
+            MenuItem {
+                text: engine.rootMode ? qsTr("Restart in user mode") : qsTr("Restart in root mode")
+                onClicked: {
+                    engine.rootMode = !engine.rootMode
+                }
+            }
         }
 
         ConfigurationGroup {

@@ -195,12 +195,16 @@ bool FileEngine::changeFilePermission(QString fullPath, int permissionPos)
  */
 QString FileEngine::getSdCardMountPath()
 {
-    if (QDir("/run/user/media/sdcard").exists())
-        return "/run/user/media/sdcard";
-    else if (QDir("/media/sdcard").exists())
-        return "/media/sdcard";
-    else
-        return "";
+    QString path = "";
+
+if (QDir("/run/media/defaultuser").exists())
+    path = "/run/media/defaultuser";
+else if (QDir("/run/media/nemo").exists())
+    path = "/run/media/nemo";
+else if (QDir("/media/sdcard").exists())
+    path = "/media/sdcard";
+
+return path;
 }
 
 bool FileEngine::getRootMode()

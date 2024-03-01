@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<TS version="2.1" language="nl">
 <context>
     <name>About</name>
     <message>
         <source>About</source>
-        <translation>Om</translation>
+        <translation>Over</translation>
     </message>
     <message>
         <source>Made by Michał Szczepaniak. Based on fileman.</source>
-        <translation>Gjord av Michał Szczepaniak. Baserad på Fileman.</translation>
+        <translation>Gemaakt door Michał Szczepaniak. Gebaseerd op fileman.</translation>
     </message>
     <message>
         <source>Licensed under GPLv3</source>
-        <translation>Licensierad under GPLv3</translation>
+        <translation>Gelicentieerd onder GPLv3</translation>
     </message>
     <message>
         <source>Links</source>
-        <translation>Länkar</translation>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation>Donera</translation>
+        <translation>Doneer</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Medewerkers:</translation>
     </message>
     <message>
         <source>Rudi Timmermans (rudi1970)</source>
-        <translation type="unfinished"></translation>
+        <translation>Rudi Timmermans (rudi1970)</translation>
     </message>
     <message>
         <source>Nanofiles Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles Vertalingen</translation>
     </message>
 </context>
 <context>
@@ -47,274 +47,274 @@
     <name>ErrorDialog</name>
     <message>
         <source>Error</source>
-        <translation>Fel</translation>
+        <translation>Fout</translation>
     </message>
     <message>
         <source>Okay</source>
-        <translation>Okay</translation>
+        <translation>Oké</translation>
     </message>
 </context>
 <context>
     <name>FileInfo</name>
     <message>
         <source>Share</source>
-        <translation>Dela</translation>
+        <translation>Deel</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Storlek:</translation>
+        <translation>Grootte:</translation>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>Ändrad:</translation>
+        <translation>Gewijzigd:</translation>
     </message>
     <message>
         <source>Accessed:</source>
-        <translation>Använd:</translation>
+        <translation>Bereikbaar:</translation>
     </message>
     <message>
         <source>File information</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestandsinformatie</translation>
     </message>
 </context>
 <context>
     <name>FileProcess</name>
     <message>
         <source>Installing...</source>
-        <translation>Installerar...</translation>
+        <translation>Installeren...</translation>
     </message>
     <message>
         <source>Opening file...</source>
-        <translation>Öppnar fil...</translation>
+        <translation>Bestand openen...</translation>
     </message>
     <message>
         <source>Installing packages</source>
-        <translation>Installerar paket</translation>
+        <translation>Pakketten installeren</translation>
     </message>
     <message>
         <source>Downloading packages</source>
-        <translation>Laddar ner paket</translation>
+        <translation>Pakketten downloaden</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation>Installerad</translation>
+        <translation>Geïnstalleerd</translation>
     </message>
     <message>
         <source>Nothing was done</source>
-        <translation>Inget gjordes</translation>
+        <translation>Er werd niets gedaan</translation>
     </message>
     <message>
         <source>Installation failed</source>
-        <translation>Installationen misslyckades</translation>
+        <translation>Installatie mislukt</translation>
     </message>
     <message>
         <source>Installation was started</source>
-        <translation>Installationen startades</translation>
+        <translation>De installatie is gestart</translation>
     </message>
     <message>
         <source>Installation couldn&apos;t be started</source>
-        <translation>Installationen kunde inte startas</translation>
+        <translation>Installatie kon niet worden gestart</translation>
     </message>
     <message>
         <source>File opened</source>
-        <translation>Fil öppnad</translation>
+        <translation>Bestand geopend</translation>
     </message>
     <message>
         <source>Suitable application was not found</source>
-        <translation>Passande app kunde inte hittas</translation>
+        <translation>Geen geschikte toepassing gevonden</translation>
     </message>
     <message>
         <source>File couldn&apos;t be opened</source>
-        <translation>Filen kunde inte öppnas</translation>
+        <translation>Bestand kon niet worden geopend</translation>
     </message>
 </context>
 <context>
     <name>FileRenameDialog</name>
     <message>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Hernoem</translation>
     </message>
 </context>
 <context>
     <name>Main</name>
     <message>
         <source>New…</source>
-        <translation>Nytt...</translation>
+        <translation>Nieuw...</translation>
     </message>
     <message>
         <source>Add to places</source>
-        <translation>Lägg till i Platser</translation>
+        <translation>Voeg toe aan bladwijzers</translation>
     </message>
     <message>
         <source>Hide hidden files</source>
-        <translation>Dölj dolda filer</translation>
+        <translation>Verborgen bestanden verbergen</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation>Visa dolda filer</translation>
+        <translation>Verborgen bestanden weergeven</translation>
     </message>
     <message>
         <source>Switch to grid view</source>
-        <translation>Växla till ikonvy</translation>
+        <translation>Overschakelen naar rasterweergave</translation>
     </message>
     <message>
         <source>Switch to list view</source>
-        <translation>Växla till listvy</translation>
+        <translation>Overschakelen naar lijstweergave</translation>
     </message>
     <message>
         <source>Size: %1 Modified: %2</source>
-        <translation>Storlek: %1 Ändrad: %2</translation>
+        <translation>Grootte: %1 Gewijzigd: %2</translation>
     </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
     <message>
         <source>Directory</source>
-        <translation>Mapp</translation>
+        <translation>Directory</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Bestand</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Name…</source>
-        <translation>Namn…</translation>
+        <translation>Naam...</translation>
     </message>
 </context>
 <context>
     <name>Places</name>
     <message>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Verwijder</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation>Flytta upp</translation>
+        <translation>Omhoog</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation>Flytta ner</translation>
+        <translation>Omlaag</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Hernoem</translation>
     </message>
     <message>
         <source>Change name</source>
-        <translation>Ändra namn</translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <source>Reset entries</source>
-        <translation>Återställ poster</translation>
+        <translation>Opnieuw instellen</translation>
     </message>
     <message>
         <source>Restart in user mode</source>
-        <translation type="unfinished">Starta om i användarläge</translation>
+        <translation>Opnieuw opstarten in gebruikersmodus</translation>
     </message>
     <message>
         <source>Restart in root mode</source>
-        <translation type="unfinished">Starta om i root-läge</translation>
+        <translation>Opnieuw opstarten in rootmodus</translation>
     </message>
     <message>
         <source>About Nanofiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Over Nanofiles</translation>
     </message>
 </context>
 <context>
     <name>ShareFilesPage</name>
     <message>
         <source>No sharing accounts available!</source>
-        <translation>Inga delningskonton tillgängliga!</translation>
+        <translation>Geen gedeelde accounts beschikbaar!</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Dela</translation>
+        <translation>Deel</translation>
     </message>
 </context>
 <context>
     <name>TranslationsPage</name>
     <message>
         <source>POEditor translations</source>
-        <translation type="unfinished"></translation>
+        <translation>POEditor vertalingen</translation>
     </message>
     <message>
         <source>Nanofiles translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles vertalers</translation>
     </message>
 </context>
 <context>
     <name>Worker</name>
     <message>
         <source>Copying files...</source>
-        <translation>Kopierar filer...</translation>
+        <translation>Bestanden kopiëren...</translation>
     </message>
     <message>
         <source>Creating directories...</source>
-        <translation>Skapar mappar...</translation>
+        <translation>Mappen maken...</translation>
     </message>
     <message>
         <source>Directories couldn&apos;t be created.</source>
-        <translation>Mappar kunde inte skapas.</translation>
+        <translation>Mappen konden niet worden aangemaakt.</translation>
     </message>
     <message>
         <source>Copying files (%1 of %2)...</source>
-        <translation>Kopierar filer (%1 av %2)...</translation>
+        <translation>Bestanden kopiëren (%1 van %2)...</translation>
     </message>
     <message>
         <source>All files were copied successfully.</source>
-        <translation>Alla filer kopierades utan problem.</translation>
+        <translation>Alle bestanden zijn met succes gekopieerd.</translation>
     </message>
     <message>
         <source>All files couldn&apos;t be copied successfully.</source>
-        <translation>Alla filer kunde inte kopieras korrekt.</translation>
+        <translation>Alle bestanden konden niet succesvol worden gekopieerd.</translation>
     </message>
     <message>
         <source>Deleting old files (%1 of %2)...</source>
-        <translation>Tar bort gamla filer (%1 av %2)...</translation>
+        <translation>Oude bestanden verwijderen (%1 van %2)...</translation>
     </message>
     <message>
         <source>Deleting old directories...</source>
-        <translation>Tar bort gamla mappar...</translation>
+        <translation>Oude mappen verwijderen...</translation>
     </message>
     <message>
         <source>All of the files were cut and pasted successfully.</source>
-        <translation>Alla filer klipptes ut och klistrades in utan problem.</translation>
+        <translation>Alle bestanden werden met succes geknipt en geplakt.</translation>
     </message>
     <message>
         <source>All of the files couldn&apos;t be cut and pasted successfully.</source>
-        <translation>Alla filer kunde inte klippas ut och klistras in korrekt.</translation>
+        <translation>Alle bestanden konden niet succesvol worden geknipt en geplakt.</translation>
     </message>
     <message>
         <source>Failed to copy all files, deleting copied files (%1 of %2)...</source>
-        <translation>Kunde inte kopiera alla filer, tar bort kopierade filer (%1 av %2)...</translation>
+        <translation>Kopiëren van alle bestanden mislukt, gekopieerde bestanden verwijderd (%1 van %2)...</translation>
     </message>
     <message>
         <source>Failed to copy all files, deleting created directories...</source>
-        <translation>Kunde inte kopiera alla filer, tar bort skapade mappar...</translation>
+        <translation>Niet gelukt om alle bestanden te kopiëren, verwijdert aangemaakte mappen...</translation>
     </message>
     <message>
         <source>Deleting files...</source>
-        <translation>Tar bort filer...</translation>
+        <translation>Bestanden verwijderen...</translation>
     </message>
     <message>
         <source>Deleting files (%1 of %2)...</source>
-        <translation>Tar bort filer (%1 av %2)...</translation>
+        <translation>Bestanden verwijderen (%1 van %2)...</translation>
     </message>
     <message>
         <source>Deleting directories...</source>
-        <translation>Tar bort mappar...</translation>
+        <translation>Mappen verwijderen...</translation>
     </message>
     <message>
         <source>All files were deleted successfully.</source>
-        <translation>Alla filer togs bort utan problem.</translation>
+        <translation>Alle bestanden zijn succesvol verwijderd.</translation>
     </message>
     <message>
         <source>All files couldn&apos;t be deleted successfully.</source>
-        <translation>Alla filer kunde inta tas bort korrekt.</translation>
+        <translation>Alle bestanden konden niet succesvol worden verwijderd.</translation>
     </message>
 </context>
 </TS>

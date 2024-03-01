@@ -23,6 +23,7 @@ DISTFILES += qml/nanofiles.qml \
     qml/pages/Main.qml \
     qml/pages/About.qml \
     qml/pages/Places.qml \
+    qml/pages/TranslationsPage.qml \
     qml/pages/ShareFilesPage.qml \
     qml/components/NewFilesDialog.qml \
     qml/components/FileRenameDialog.qml \
@@ -39,6 +40,7 @@ RESOURCES += \
 CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/nanofiles.ts \
+                translations/nanofiles-nl.ts \
                 translations/nanofiles-es.ts \
                 translations/nanofiles-hu.ts \
                 translations/nanofiles-sv.ts \

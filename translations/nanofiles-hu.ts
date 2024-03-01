@@ -20,31 +20,19 @@
         <translation>Hivatkozások</translation>
     </message>
     <message>
-        <source>Thanks to</source>
-        <translation>Köszönet illeti</translation>
-    </message>
-    <message>
-        <source>Rudi Timmermans for fileman.</source>
-        <translation>Rudi Timmermans-t a Fileman-ért.</translation>
-    </message>
-    <message>
         <source>Donate</source>
         <translation>Adományok</translation>
     </message>
     <message>
-        <source>1Zgp for Hungarian translation.</source>
+        <source>Contributors:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>dashinfantry for Chinese translation.</source>
+        <source>Rudi Timmermans (rudi1970)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>eson57 for Swedish translation.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>carmenfdezb for Spanish translation.</source>
+        <source>Nanofiles Translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -150,10 +138,6 @@
 <context>
     <name>Main</name>
     <message>
-        <source>About</source>
-        <translation>Névjegy</translation>
-    </message>
-    <message>
         <source>New…</source>
         <translation>Új...</translation>
     </message>
@@ -176,14 +160,6 @@
     <message>
         <source>Switch to list view</source>
         <translation>Váltás listanézetre</translation>
-    </message>
-    <message>
-        <source>Restart in user mode</source>
-        <translation>Újraindítás felhasználó-módban</translation>
-    </message>
-    <message>
-        <source>Restart in root mode</source>
-        <translation>Újraindítás root-módban</translation>
     </message>
     <message>
         <source>Size: %1 Modified: %2</source>
@@ -235,6 +211,18 @@
         <source>Reset entries</source>
         <translation>Bejegyzések visszaállítása</translation>
     </message>
+    <message>
+        <source>Restart in user mode</source>
+        <translation type="unfinished">Újraindítás felhasználó-módban</translation>
+    </message>
+    <message>
+        <source>Restart in root mode</source>
+        <translation type="unfinished">Újraindítás root-módban</translation>
+    </message>
+    <message>
+        <source>About Nanofiles</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareFilesPage</name>
@@ -245,6 +233,17 @@
     <message>
         <source>Share</source>
         <translation>Megosztás</translation>
+    </message>
+</context>
+<context>
+    <name>TranslationsPage</name>
+    <message>
+        <source>POEditor translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nanofiles translators</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

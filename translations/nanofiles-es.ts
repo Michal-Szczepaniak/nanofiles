@@ -20,31 +20,19 @@
         <translation>Enlaces</translation>
     </message>
     <message>
-        <source>Thanks to</source>
-        <translation>Gracias a</translation>
-    </message>
-    <message>
-        <source>Rudi Timmermans for fileman.</source>
-        <translation>Rudi Timmermans por fileman.</translation>
-    </message>
-    <message>
         <source>Donate</source>
         <translation>Donar</translation>
     </message>
     <message>
-        <source>1Zgp for Hungarian translation.</source>
+        <source>Contributors:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>dashinfantry for Chinese translation.</source>
+        <source>Rudi Timmermans (rudi1970)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>eson57 for Swedish translation.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>carmenfdezb for Spanish translation.</source>
+        <source>Nanofiles Translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -150,10 +138,6 @@
 <context>
     <name>Main</name>
     <message>
-        <source>About</source>
-        <translation>Acerca de</translation>
-    </message>
-    <message>
         <source>New…</source>
         <translation>Nuevo...</translation>
     </message>
@@ -176,14 +160,6 @@
     <message>
         <source>Switch to list view</source>
         <translation>Cambiar a vista de lista</translation>
-    </message>
-    <message>
-        <source>Restart in user mode</source>
-        <translation>Reiniciar en modo usuario</translation>
-    </message>
-    <message>
-        <source>Restart in root mode</source>
-        <translation>Reiniciar en modo root</translation>
     </message>
     <message>
         <source>Size: %1 Modified: %2</source>
@@ -235,6 +211,18 @@
         <source>Reset entries</source>
         <translation>Reiniciar entradas</translation>
     </message>
+    <message>
+        <source>Restart in user mode</source>
+        <translation type="unfinished">Reiniciar en modo usuario</translation>
+    </message>
+    <message>
+        <source>Restart in root mode</source>
+        <translation type="unfinished">Reiniciar en modo root</translation>
+    </message>
+    <message>
+        <source>About Nanofiles</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareFilesPage</name>
@@ -245,6 +233,17 @@
     <message>
         <source>Share</source>
         <translation>Compartir</translation>
+    </message>
+</context>
+<context>
+    <name>TranslationsPage</name>
+    <message>
+        <source>POEditor translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nanofiles translators</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
