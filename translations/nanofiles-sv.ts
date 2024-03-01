@@ -165,6 +165,10 @@
         <source>Size: %1 Modified: %2</source>
         <translation>Storlek: %1 Ändrad: %2</translation>
     </message>
+    <message>
+        <source>Reset entries</source>
+        <translation type="unfinished">Återställ poster</translation>
+    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -206,10 +210,6 @@
     <message>
         <source>Change name</source>
         <translation>Ändra namn</translation>
-    </message>
-    <message>
-        <source>Reset entries</source>
-        <translation>Återställ poster</translation>
     </message>
     <message>
         <source>Restart in user mode</source>

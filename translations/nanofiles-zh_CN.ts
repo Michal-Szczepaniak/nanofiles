@@ -165,6 +165,10 @@
         <source>Size: %1 Modified: %2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset entries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -206,10 +210,6 @@
     <message>
         <source>Change name</source>
         <translation>修改名称</translation>
-    </message>
-    <message>
-        <source>Reset entries</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart in user mode</source>

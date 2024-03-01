@@ -165,6 +165,10 @@
         <source>Size: %1 Modified: %2</source>
         <translation>Grootte: %1 Gewijzigd: %2</translation>
     </message>
+    <message>
+        <source>Reset entries</source>
+        <translation>Opnieuw instellen</translation>
+    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -206,10 +210,6 @@
     <message>
         <source>Change name</source>
         <translation>Naam wijzigen</translation>
-    </message>
-    <message>
-        <source>Reset entries</source>
-        <translation>Opnieuw instellen</translation>
     </message>
     <message>
         <source>Restart in user mode</source>

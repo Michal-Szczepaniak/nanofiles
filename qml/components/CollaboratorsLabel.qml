@@ -1,8 +1,7 @@
 import QtQuick 2.5
 import Sailfish.Silica 1.0
 
-Column
-{
+Column {
     property alias title: typelabel.text
     property var labelData
 
@@ -10,15 +9,13 @@ Column
     anchors { left: parent.left; right: parent.right }
     visible: labelData.length > 0
 
-    Label
-    {
+    Label {
         id: typelabel
         anchors { left: parent.left; right: parent.right }
         horizontalAlignment: Text.AlignHCenter
     }
 
-    Repeater
-    {
+    Repeater {
         model: labelData
 
         delegate: Label {
