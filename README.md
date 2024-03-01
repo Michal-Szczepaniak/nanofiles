@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/Michal-Szczepaniak/nanofiles/master/icons/172x172/nanofiles.png" width="256px" alt="Nanofiles">
   <br>
   <br>
-  Fileman
+  Nanofiles
   <br>
   <br>
 </h1>
