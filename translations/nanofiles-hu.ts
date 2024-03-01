@@ -165,10 +165,6 @@
         <source>Size: %1 Modified: %2</source>
         <translation>Méret: %1 Módosítva: %2</translation>
     </message>
-    <message>
-        <source>Reset entries</source>
-        <translation type="unfinished">Bejegyzések visszaállítása</translation>
-    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -222,6 +218,10 @@
     <message>
         <source>About Nanofiles</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset entries</source>
+        <translation>Bejegyzések visszaállítása</translation>
     </message>
 </context>
 <context>

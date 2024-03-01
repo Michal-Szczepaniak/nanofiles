@@ -165,10 +165,6 @@
         <source>Size: %1 Modified: %2</source>
         <translation>Grootte: %1 Gewijzigd: %2</translation>
     </message>
-    <message>
-        <source>Reset entries</source>
-        <translation>Opnieuw instellen</translation>
-    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -222,6 +218,10 @@
     <message>
         <source>About Nanofiles</source>
         <translation>Over Nanofiles</translation>
+    </message>
+    <message>
+        <source>Reset entries</source>
+        <translation>Opnieuw instellen</translation>
     </message>
 </context>
 <context>

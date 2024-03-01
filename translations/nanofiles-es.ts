@@ -165,10 +165,6 @@
         <source>Size: %1 Modified: %2</source>
         <translation>Tamaño: %1 Modificado: %2</translation>
     </message>
-    <message>
-        <source>Reset entries</source>
-        <translation type="unfinished">Reiniciar entradas</translation>
-    </message>
 </context>
 <context>
     <name>NewFilesDialog</name>
@@ -222,6 +218,10 @@
     <message>
         <source>About Nanofiles</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset entries</source>
+        <translation>Reiniciar entradas</translation>
     </message>
 </context>
 <context>

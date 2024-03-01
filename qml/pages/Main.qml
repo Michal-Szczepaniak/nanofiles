@@ -178,7 +178,7 @@ Page {
                                                    {name: "Videos", path: StandardPaths.videos},
                                                    {name: "Android storage", path: StandardPaths.home + "/android_storage"},
                                                    {name: "Root", path: "/"},
-                                                   {name: "SD card", "location": engine.getSdCardMountPath()},
+                                                   {name: "SD card", path: engine.getSdCardMountPath()},
                                                ])
         property bool listView: false
     }
@@ -191,11 +191,6 @@ Page {
         anchors.fill: parent
 
         PullDownMenu {
-            MenuItem {
-                text: qsTr("Reset entries")
-                onClicked: settings.places = defaultPlaces
-            }
-
             MenuItem {
                 text: settings.listView ? qsTr("Switch to grid view") : qsTr("Switch to list view")
                 onClicked: settings.listView = !settings.listView

@@ -34,6 +34,12 @@ Page {
                 text: qsTr("About Nanofiles")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
+
+            MenuItem {
+                text: qsTr("Reset entries")
+                onClicked: settings.places = defaultPlaces
+            }
+
             MenuItem {
                 text: engine.rootMode ? qsTr("Restart in user mode") : qsTr("Restart in root mode")
                 onClicked: {
