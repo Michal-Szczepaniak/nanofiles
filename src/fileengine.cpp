@@ -197,14 +197,14 @@ QString FileEngine::getSdCardMountPath()
 {
     QString path = "";
 
-if (QDir("/run/media/defaultuser").exists())
-    path = "/run/media/defaultuser";
-else if (QDir("/run/media/nemo").exists())
-    path = "/run/media/nemo";
-else if (QDir("/media/sdcard").exists())
-    path = "/media/sdcard";
+    if (QDir("/run/media/defaultuser").exists())
+        path = "/run/media/defaultuser";
+    else if (QDir("/run/media/nemo").exists())
+        path = "/run/media/nemo";
+    else if (QDir("/media/sdcard").exists())
+        path = "/media/sdcard";
 
-return path;
+    return path;
 }
 
 bool FileEngine::getRootMode()

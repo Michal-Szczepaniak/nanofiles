@@ -192,6 +192,11 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Reset entries")
+                onClicked: settings.places = defaultPlaces
+            }
+
+            MenuItem {
                 text: settings.listView ? qsTr("Switch to grid view") : qsTr("Switch to list view")
                 onClicked: settings.listView = !settings.listView
             }

@@ -30,14 +30,12 @@ Page {
 
         contentHeight: column.height + header.height + Theme.paddingLarge
 
-        PullDownMenu
-        {
-            MenuItem
-            {
-                text: qsTr("Nanofiles Translations")
-                onClicked: pageStack.push(Qt.resolvedUrl("TranslationsPage.qml"))
-            }
+        PullDownMenu {
+        MenuItem {
+            text: qsTr("Nanofiles Translations")
+            onClicked: pageStack.push(Qt.resolvedUrl("TranslationsPage.qml"))
         }
+     }
 
         PageHeader {
             id: header
