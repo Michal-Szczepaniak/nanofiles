@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>About</source>
-        <translation>A proposito di</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Made by Michał Szczepaniak. Based on fileman.</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Contributors:</source>
-        <translation>Contribuzioni</translation>
+        <translation>Contribuzioni:</translation>
     </message>
     <message>
         <source>Rudi Timmermans (rudi1970)</source>
@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Okay</source>
-        <translation>Okay</translation>
+        <translation>Va bene</translation>
     </message>
 </context>
 <context>
@@ -81,19 +81,19 @@
     <name>FileProcess</name>
     <message>
         <source>Installing...</source>
-        <translation>Installando...</translation>
+        <translation>Installazione...</translation>
     </message>
     <message>
         <source>Opening file...</source>
-        <translation>Aprendo il file...</translation>
+        <translation>Apertura file...</translation>
     </message>
     <message>
         <source>Installing packages</source>
-        <translation>Sto installando i pacchetti</translation>
+        <translation>Installazione pacchetti</translation>
     </message>
     <message>
         <source>Downloading packages</source>
-        <translation>Sto scaricando i pacchetti</translation>
+        <translation>Scaricamento pacchetti</translation>
     </message>
     <message>
         <source>Installed</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Nothing was done</source>
-        <translation>Non è stato fatto niente</translation>
+        <translation>Nessuna operazione eseguita</translation>
     </message>
     <message>
         <source>Installation failed</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Suitable application was not found</source>
-        <translation>Non ho trovato un applicazione adeguata</translation>
+        <translation>Non ho trovato un&apos;applicazione adeguata</translation>
     </message>
     <message>
         <source>File couldn&apos;t be opened</source>
@@ -143,15 +143,15 @@
     </message>
     <message>
         <source>Add to places</source>
-        <translation>Aggiungi alle posizioni</translation>
+        <translation>Aggiungi a posizioni</translation>
     </message>
     <message>
         <source>Hide hidden files</source>
-        <translation>Non mostrare i file nascosti</translation>
+        <translation>Non mostrare file nascosti</translation>
     </message>
     <message>
         <source>Show hidden files</source>
-        <translation>Mostra i file nascosti</translation>
+        <translation>Mostra file nascosti</translation>
     </message>
     <message>
         <source>Switch to grid view</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Switch to list view</source>
-        <translation>Cambia a modalità lista</translation>
+        <translation>Passa a modalità lista</translation>
     </message>
     <message>
         <source>Size: %1 Modified: %2</source>
@@ -217,11 +217,11 @@
     </message>
     <message>
         <source>About Nanofiles</source>
-        <translation>A proposito di Nanofiles</translation>
+        <translation>Info su Nanofiles</translation>
     </message>
     <message>
         <source>Reset entries</source>
-        <translation>Resetta entrate</translation>
+        <translation>Ripristina predefiniti</translation>
     </message>
 </context>
 <context>
@@ -250,35 +250,35 @@
     <name>Worker</name>
     <message>
         <source>Copying files...</source>
-        <translation>Sto copiando i file...</translation>
+        <translation>Copia file...</translation>
     </message>
     <message>
         <source>Creating directories...</source>
-        <translation>Sto creando le cartelle...</translation>
+        <translation>Creazione cartelle...</translation>
     </message>
     <message>
         <source>Directories couldn&apos;t be created.</source>
-        <translation>Non posso creare le cartelle.</translation>
+        <translation>Creazione cartelle fallita.</translation>
     </message>
     <message>
         <source>Copying files (%1 of %2)...</source>
-        <translation>Sto copiando i file(%1 de %2)...</translation>
+        <translation>Copia file(%1 de %2)...</translation>
     </message>
     <message>
         <source>All files were copied successfully.</source>
-        <translation>Tutti i file sono stati copiati.</translation>
+        <translation>Tutti i file sono stati copiati correttamente.</translation>
     </message>
     <message>
         <source>All files couldn&apos;t be copied successfully.</source>
-        <translation>Non ho potuto copiare correttamente tutti i file.</translation>
+        <translation>Non ho potuto copiare correttamente i file.</translation>
     </message>
     <message>
         <source>Deleting old files (%1 of %2)...</source>
-        <translation>Sto eliminando i vecchi file (%1 de %2)...</translation>
+        <translation>Eliminazione vecchi file (%1 de %2)...</translation>
     </message>
     <message>
         <source>Deleting old directories...</source>
-        <translation>Sto eliminando le vecchie cartelle...</translation>
+        <translation>Eliminazione vecchie cartelle...</translation>
     </message>
     <message>
         <source>All of the files were cut and pasted successfully.</source>
@@ -290,11 +290,11 @@
     </message>
     <message>
         <source>Failed to copy all files, deleting copied files (%1 of %2)...</source>
-        <translation>Errore nel copiare i file, Sto eliminando i file copiati (%1 de %2)...</translation>
+        <translation>Errore nel copiare i file, Eliminazione file copiati (%1 de %2)...</translation>
     </message>
     <message>
         <source>Failed to copy all files, deleting created directories...</source>
-        <translation>Errore nel copiare i file, Sto eliminando le cartelle create...</translation>
+        <translation>Errore nel copiare i file, Eliminazione cartelle create...</translation>
     </message>
     <message>
         <source>Deleting files...</source>
@@ -302,19 +302,19 @@
     </message>
     <message>
         <source>Deleting files (%1 of %2)...</source>
-        <translation>Sto eliminando i file (%1 de %2)...</translation>
+        <translation>Eliminazione file (%1 de %2)...</translation>
     </message>
     <message>
         <source>Deleting directories...</source>
-        <translation>Sto eliminando le cartelle...</translation>
+        <translation>Eliminazione cartelle...</translation>
     </message>
     <message>
         <source>All files were deleted successfully.</source>
-        <translation>Tutti i file sono stati eliminati.</translation>
+        <translation>File eliminati correttamente.</translation>
     </message>
     <message>
         <source>All files couldn&apos;t be deleted successfully.</source>
-        <translation>Non ho potuto elimiare correttamente tutti i file.</translation>
+        <translation>Non ho potuto eliminare correttamente i file.</translation>
     </message>
 </context>
 </TS>
