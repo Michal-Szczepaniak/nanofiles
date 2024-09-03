@@ -57,7 +57,7 @@ Page {
             }
 
             Label {
-                text: "Nanofiles 1.4.2"
+                text: "Nanofiles 1.4.4"
                 font.pixelSize: Theme.fontSizeExtraLarge
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
