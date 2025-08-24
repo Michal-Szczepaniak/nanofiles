@@ -25,15 +25,15 @@
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Medarbetare:</translation>
     </message>
     <message>
         <source>Rudi Timmermans (rudi1970)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Nanofiles Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles översättningar</translation>
     </message>
 </context>
 <context>
@@ -74,7 +74,7 @@
     </message>
     <message>
         <source>File information</source>
-        <translation type="unfinished"></translation>
+        <translation>Filinformation</translation>
     </message>
 </context>
 <context>
@@ -209,15 +209,15 @@
     </message>
     <message>
         <source>Restart in user mode</source>
-        <translation type="unfinished">Starta om i användarläge</translation>
+        <translation>Starta om i användarläge</translation>
     </message>
     <message>
         <source>Restart in root mode</source>
-        <translation type="unfinished">Starta om i root-läge</translation>
+        <translation>Starta om i root-läge</translation>
     </message>
     <message>
         <source>About Nanofiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Om Nanofiles</translation>
     </message>
     <message>
         <source>Reset entries</source>
@@ -239,11 +239,11 @@
     <name>TranslationsPage</name>
     <message>
         <source>POEditor translations</source>
-        <translation type="unfinished"></translation>
+        <translation>POEditor-översättningar</translation>
     </message>
     <message>
         <source>Nanofiles translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles översättare</translation>
     </message>
 </context>
 <context>
