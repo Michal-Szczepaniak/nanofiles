@@ -303,6 +303,10 @@
         <source>SD card</source>
         <translation>Muistikortti</translation>
     </message>
+    <message>
+        <source>Resetting entries</source>
+        <translation>Palautetaan oletussijainnit</translation>
+    </message>
 </context>
 <context>
     <name>ShareFilesPage</name>

@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
 
 Page {
+    id: placesPage
 
     property var flm
 
@@ -37,7 +38,8 @@ Page {
 
             MenuItem {
                 text: qsTr("Reset entries")
-                onClicked: settings.places = defaultPlaces
+                onClicked: Remorse.popupAction(placesPage, qsTr("Resetting entries"),
+                                                function() { settings.places = defaultPlaces })
             }
 
             MenuItem {
