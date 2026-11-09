@@ -1,5 +1,9 @@
 include(vendor/vendor.pri)
 
+# SortFilterProxyModel uses qmlWarning(), which Qt only has since 5.9.
+# Sailfish OS has Qt 5.6, so log those warnings with qWarning() there.
+lessThan(QT_MAJOR_VERSION, 6):lessThan(QT_MINOR_VERSION, 9): DEFINES += "'qmlWarning(object)=qWarning()'"
+
 TARGET = nanofiles
 
 QT += widgets
