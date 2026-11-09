@@ -13,6 +13,7 @@ URL:        http://verdanditeam.com/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  nanofiles.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   nemo-qml-plugin-thumbnailer-qt5
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
