@@ -303,6 +303,10 @@
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Resetting entries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareFilesPage</name>
