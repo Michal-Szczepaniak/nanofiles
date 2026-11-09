@@ -34,6 +34,10 @@ Page {
                 labelData: [ "Carmenfdezb" ]
             }
             CollaboratorsLabel {
+                title: "Finnish"
+                labelData: [ "jmpx448" ]
+            }
+            CollaboratorsLabel {
                 title: "Hungarian"
                 labelData: [ "1Zgp" ]
             }

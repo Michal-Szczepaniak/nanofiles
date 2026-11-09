@@ -170,15 +170,15 @@ Page {
         path: "/apps/nanofiles"
 
         property string places: JSON.stringify([
-                                                   {name: "Home", path: StandardPaths.home},
-                                                   {name: "Documents", path: StandardPaths.documents},
-                                                   {name: "Downloads", path: StandardPaths.download},
-                                                   {name: "Music", path: StandardPaths.music},
-                                                   {name: "Pictures", path: StandardPaths.pictures},
-                                                   {name: "Videos", path: StandardPaths.videos},
-                                                   {name: "Android storage", path: StandardPaths.home + "/android_storage"},
-                                                   {name: "Root", path: "/"},
-                                                   {name: "SD card", path: engine.getSdCardMountPath()},
+                                                   {name: qsTr("Home"), path: StandardPaths.home},
+                                                   {name: qsTr("Documents"), path: StandardPaths.documents},
+                                                   {name: qsTr("Downloads"), path: StandardPaths.download},
+                                                   {name: qsTr("Music"), path: StandardPaths.music},
+                                                   {name: qsTr("Pictures"), path: StandardPaths.pictures},
+                                                   {name: qsTr("Videos"), path: StandardPaths.videos},
+                                                   {name: qsTr("Android storage"), path: StandardPaths.home + "/android_storage"},
+                                                   {name: qsTr("Root"), path: "/"},
+                                                   {name: qsTr("SD card"), path: engine.getSdCardMountPath()},
                                                ])
         property bool listView: false
     }
