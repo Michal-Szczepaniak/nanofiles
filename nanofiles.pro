@@ -41,6 +41,7 @@ CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/nanofiles.ts \
                 translations/nanofiles-es.ts \
+                translations/nanofiles-fi.ts \
                 translations/nanofiles-hu.ts \
                 translations/nanofiles-it.ts \
                 translations/nanofiles-nl.ts \

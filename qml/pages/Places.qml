@@ -9,15 +9,15 @@ Page {
     allowedOrientations: Orientation.All
 
     property string defaultPlaces: JSON.stringify([
-                                                      {name: "Home", path: StandardPaths.home},
-                                                      {name: "Documents", path: StandardPaths.documents},
-                                                      {name: "Downloads", path: StandardPaths.download},
-                                                      {name: "Music", path: StandardPaths.music},
-                                                      {name: "Pictures", path: StandardPaths.pictures},
-                                                      {name: "Videos", path: StandardPaths.videos},
-                                                      {name: "Android storage", path: StandardPaths.home + "/android_storage"},
-                                                      {name: "Root", path: "/"},
-                                                      {name: "SD card", path: engine.getSdCardMountPath()},
+                                                      {name: qsTr("Home"), path: StandardPaths.home},
+                                                      {name: qsTr("Documents"), path: StandardPaths.documents},
+                                                      {name: qsTr("Downloads"), path: StandardPaths.download},
+                                                      {name: qsTr("Music"), path: StandardPaths.music},
+                                                      {name: qsTr("Pictures"), path: StandardPaths.pictures},
+                                                      {name: qsTr("Videos"), path: StandardPaths.videos},
+                                                      {name: qsTr("Android storage"), path: StandardPaths.home + "/android_storage"},
+                                                      {name: qsTr("Root"), path: "/"},
+                                                      {name: qsTr("SD card"), path: engine.getSdCardMountPath()},
                                                   ])
 
     SilicaFlickable {
@@ -26,7 +26,7 @@ Page {
 
         PageHeader {
             id: pageHeader
-            title: "Places"
+            title: qsTr("Places")
         }
 
         PullDownMenu {
@@ -152,7 +152,7 @@ Page {
                 id: nameField
                 width: parent.width
                 placeholderText: nameChangeDialog.name
-                label: "Name"
+                label: qsTr("Name")
             }
         }
 
