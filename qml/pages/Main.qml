@@ -5,6 +5,7 @@ import QtQml.Models 2.2
 import Qt.labs.folderlistmodel 2.1
 import SortFilterProxyModel 0.2
 import org.nemomobile.configuration 1.0
+import Nemo.Thumbnailer 1.0
 import "../components"
 import "../js/moment.min.js" as Moment
 
@@ -24,10 +25,9 @@ Page {
             icon = "image://theme/icon-m-file-audio";
             break;
         case "image":
-            if (Math.round(fileSize/1024) < 1024)
-                icon = filePath
-            else
-                icon = "image://theme/icon-m-file-image";
+            // fileSize 0 = FileInfo page: show the full image.
+            // Otherwise use the system thumbnailer (cached, scaled) for any size.
+            icon = fileSize === 0 ? filePath : "image://nemoThumbnail/" + filePath
             break;
         case "video":
             icon = "image://theme/icon-m-file-video";
@@ -355,10 +355,20 @@ Page {
                                     id: listIcon
                                     width: parent.height
                                     height: parent.height
-                                    source: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                                    property string iconSource: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                                    property bool isThumb: iconSource.indexOf("image://nemoThumbnail/") === 0
+                                    source: isThumb ? "" : iconSource
                                     fillMode: Image.PreserveAspectFit
                                     asynchronous: true
                                     anchors.verticalCenter: parent.verticalCenter
+                                    Thumbnail {
+                                        anchors.fill: parent
+                                        visible: parent.isThumb
+                                        source: parent.isThumb ? "file://" + filePath : ""
+                                        sourceSize.width: width
+                                        sourceSize.height: height
+                                        fillMode: Thumbnail.PreserveAspectFit
+                                    }
                                 }
 
                                 Column {
@@ -455,9 +465,19 @@ Page {
                                 id: gridicon
                                 width: parent.width
                                 height: parent.height/2
-                                source: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                                property string iconSource: fileIsDir ? "image://theme/icon-m-file-folder" : getFileIconByMimeType(filePath, fileSize)
+                                property bool isThumb: iconSource.indexOf("image://nemoThumbnail/") === 0
+                                source: isThumb ? "" : iconSource
                                 fillMode: Image.PreserveAspectFit
                                 asynchronous: true
+                                Thumbnail {
+                                    anchors.fill: parent
+                                    visible: parent.isThumb
+                                    source: parent.isThumb ? "file://" + filePath : ""
+                                    sourceSize.width: width
+                                    sourceSize.height: height
+                                    fillMode: Thumbnail.PreserveAspectFit
+                                }
                             }
 
                             Label {
