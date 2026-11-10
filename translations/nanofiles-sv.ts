@@ -25,15 +25,15 @@
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Medverkande:</translation>
     </message>
     <message>
         <source>Rudi Timmermans (rudi1970)</source>
-        <translation type="unfinished"></translation>
+        <translation>Rudi Timmermans (rudi1970)</translation>
     </message>
     <message>
         <source>Nanofiles Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles översättningar</translation>
     </message>
 </context>
 <context>
@@ -74,7 +74,7 @@
     </message>
     <message>
         <source>File information</source>
-        <translation type="unfinished"></translation>
+        <translation>Filinformation</translation>
     </message>
 </context>
 <context>
@@ -167,39 +167,39 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Hem</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokument</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedladdningar</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videor</translation>
     </message>
     <message>
         <source>Android storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Android-lagring</translation>
     </message>
     <message>
         <source>Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Root</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>SD-kort</translation>
     </message>
 </context>
 <context>
@@ -245,15 +245,15 @@
     </message>
     <message>
         <source>Restart in user mode</source>
-        <translation type="unfinished">Starta om i användarläge</translation>
+        <translation>Starta om i användarläge</translation>
     </message>
     <message>
         <source>Restart in root mode</source>
-        <translation type="unfinished">Starta om i root-läge</translation>
+        <translation>Starta om i root-läge</translation>
     </message>
     <message>
         <source>About Nanofiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Om Nanofiles</translation>
     </message>
     <message>
         <source>Reset entries</source>
@@ -261,47 +261,47 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Hem</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokument</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedladdningar</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videor</translation>
     </message>
     <message>
         <source>Android storage</source>
-        <translation type="unfinished"></translation>
+        <translation>Android-lagring</translation>
     </message>
     <message>
         <source>Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Root</translation>
     </message>
     <message>
         <source>SD card</source>
-        <translation type="unfinished"></translation>
+        <translation>SD-kort</translation>
     </message>
     <message>
         <source>Places</source>
-        <translation type="unfinished"></translation>
+        <translation>Platser</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
 </context>
 <context>
@@ -319,11 +319,11 @@
     <name>TranslationsPage</name>
     <message>
         <source>POEditor translations</source>
-        <translation type="unfinished"></translation>
+        <translation>POEditor-översättningar</translation>
     </message>
     <message>
         <source>Nanofiles translators</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanofiles översättare</translation>
     </message>
 </context>
 <context>
